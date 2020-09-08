@@ -1,0 +1,82 @@
+import "package:flutter/material.dart";
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: new Stkc1(),
+    ),
+  );
+}
+
+class Stkc1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: new Text("Andre Ferdiansyah (5STKC1)"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.chat),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: new Center(
+        child: new Icon(Icons.audiotrack, size: 80.00, color: Colors.pink),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue[100],
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.android),
+            title: Text('Android'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Main page'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.audiotrack),
+            title: Text('Music'),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.navigation),
+        backgroundColor: Colors.green,
+      ),
+      drawer: new Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.green,
+              ),
+              child: Center(
+                child: Text("Name : Andre Ferdiansyah"),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.message),
+              title: Text('Inbox'),
+            ),
+            ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text('Favorite music'),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
