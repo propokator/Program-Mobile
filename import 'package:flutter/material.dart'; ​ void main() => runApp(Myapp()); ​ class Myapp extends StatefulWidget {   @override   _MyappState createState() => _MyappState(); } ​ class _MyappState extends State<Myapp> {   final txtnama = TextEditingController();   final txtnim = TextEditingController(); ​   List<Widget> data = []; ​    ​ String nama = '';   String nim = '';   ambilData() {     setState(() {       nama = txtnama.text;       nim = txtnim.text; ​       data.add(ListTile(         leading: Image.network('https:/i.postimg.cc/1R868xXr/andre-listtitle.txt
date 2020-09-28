@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+​
+void main() => runApp(Myapp());
+​
+class Myapp extends StatefulWidget {
+  @override
+  _MyappState createState() => _MyappState();
+}
+​
+class _MyappState extends State<Myapp> {
+  final txtnama = TextEditingController();
+  final txtnim = TextEditingController();
+​
+  List<Widget> data = [];
+​
+  
+​
+String nama = '';
+  String nim = '';
+  ambilData() {
+    setState(() {
+      nama = txtnama.text;
+      nim = txtnim.text;
+​
+      data.add(ListTile(
+        leading: Image.network('https://i.postimg.cc/1R868xXr/pp.jpg,'),
+        title: Text('$nama'),
+        subtitle: Text("$nim"),
+      ));
+    });
+  }
+​
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: new Scaffold(
+            appBar: new AppBar(title: Text("DATA MAHASISWA")),
+            body: new ListView(
+              children: <Widget>[
+                new Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      TextField(
+                        controller: txtnama,
+                        autocorrect: true,
+                        decoration: InputDecoration(hintText: 'Nama'),
+                      ),
+                      TextField(
+                        controller: txtnim,
+                        autocorrect: true,
+                        decoration: InputDecoration(hintText: 'Nim'),
+                      ),
+                      RaisedButton(
+                          color: Colors.red,
+                          child: Text("Tambah"),
+                          onPressed: ambilData),
+                    ],
+                  ),
+                ),
+                new Column(
+                  children: data,
+                )
+              ],
+            )));
+  }
+}
+​
